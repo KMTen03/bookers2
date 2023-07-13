@@ -1,0 +1,33 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'left', user: @book.user, book: @newbook %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              <%= link_to user_path(@book.user) do %>
+              <%= image_tag @book.user.get_profile_image(100,100) %>
+              <%= @book.user.name %>
+              <% end %>
+            </th>
+            <th><span><%= link_to @book.title, book_path(@book.user) %></span></th>
+            <th><span><%= @book.body %></span></th>
+            <% if @book.user == @user %>
+              <th><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %></th>
+              <th><%= link_to "Destroy", book_path(@book.id), method: :delete, class: "btn btn-danger pull-right" %></th>
+            <% end %>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>

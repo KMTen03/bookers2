@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-3">
+      <h2>Editing Book</h2>
+        <% if @book.errors.any? %>
+          <%= @book.errors.count %>errors
+            <ul>
+              <% @book.errors.full_messanges.each do |messsage| %>
+            <li><%= messsage %></li>
+          <% end %>
+        </ul>
+        <% end %>
+        <%= form_with model: @book, local: true do |f| %>
+      <table>
+        <tbody>
+          <div class="form-body p-4">
+            <h5 class="text-left">Title</h5>
+              <%= f.text_field :title, autofocus: true, size: "50" %>
+            <h5 class="text-left">Opinion</h5>
+              <%= f.text_area :body, autofocus: true, size: "50" %>
+              <%= f.submit "Update Book", class:"btn btn-secondary btn-success" %>
+              <%= link_to "Show", book_path(@book.id) %>
+              <span> | </span>
+              <%= link_to "Back", books_path %>
+          </div>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto mt-5">
+      <tr>
+        <th><h1>Welcome to <i class="fas fa-book"></i><strong>Bookers</strong> !!</h1></th>
+        <th><h5>In <i class="fa fa-book"></i>Bookers,</h5></th>
+        <th><h5>you can share and exchange your opinions, inpressions, and emotions</h5></th>
+        <th><h5>about various books!</h5></th>
+        <div class="d-grid gap-2">
+
+          <%= link_to 'Log in', new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+          <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+        </div>
+      </tr>
+    </div>
+  </div>
