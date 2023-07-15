@@ -11,8 +11,6 @@
     <div class="col-md-3">
       <%= render 'books/left', user: current_user, book: @book %>
     </div>
-  </div>
-  <div class="row">
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table table-hover">
@@ -26,13 +24,13 @@
         <tbody>
           <% @books.each do |book| %>
             <tr>
-              <th><span>
+              <th>
                 <%= link_to user_path(book.user) do %>
                 <%= image_tag book.user.get_profile_image(100,100) %>
                 <% end %>
-              </span></th>
-              <th><span><%= link_to book.title, book_path(book) %></span></th>
-              <th><span><%= book.body %></span></th>
+              </th>
+              <th><%= link_to book.title, book_path(book) %></th>
+              <th><%= book.body %></th>
             </tr>
           <% end %>
         </tbody>

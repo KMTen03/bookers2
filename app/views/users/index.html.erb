@@ -3,26 +3,27 @@
     <div class="col-md-3">
       <%= render 'books/left', user: current_user, book: @book %>
     </div>
-  </div>
-  <div class="col-md-8 offset-md-1">
-    <h2>Users</h2>
-    <table class="table">
-      <% @users.each do |user| %>
-      <thead>
-        <tr>
-          <th>image</th>
-          <th>name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th><span><%= image_tag current_user.get_profile_image(100,100) %></span></th>
-          <th><span><%= user.name %></span></th>
-          <th><%= link_to "Show", user_path(user.id) %></th>
-        </tr>
-      <% end %>
-      <%= paginate @users %>
-      </tbody>
-    </table>
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+        <% @users.each do |user| %>
+          <table class="table">
+          <thead>
+            <tr>
+              <th><p>image</p></th>
+              <th><p>name</p></th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><span><%= image_tag current_user.get_profile_image(100,100) %></span></th>
+              <th><span><%= user.name %></span></th>
+              <th><%= link_to "Show", user_path(user.id) %></th>
+            </tr>
+          </tbody>
+          </table>
+        <% end %>
+        <%= paginate @users %>
+    </div>
   </div>
 </div>
